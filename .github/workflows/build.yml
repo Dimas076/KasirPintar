@@ -31,10 +31,10 @@ jobs:
 
     - name: Create swap space (Tambahan RAM 4GB)
       run: |
-        sudo fallocate -l 4G /swapfile
-        sudo chmod 600 /swapfile
-        sudo mkswap /swapfile
-        sudo swapon /swapfile
+        sudo dd if=/dev/zero of=/mnt/swapfile bs=1M count=4096
+        sudo chmod 600 /mnt/swapfile
+        sudo mkswap /mnt/swapfile
+        sudo swapon /mnt/swapfile
 
     - name: Extract KasirPintar Project
       run: |
